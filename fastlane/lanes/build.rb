@@ -77,6 +77,7 @@ platform :ios do
       test_without_building: true,
       xctestrun: xctestrun_path,
       output_directory: File.join(PROJECT_ROOT_FOLDER, 'build', 'results'),
+      output_style: 'raw',
       reset_simulator: true,
       result_bundle: true
     )
