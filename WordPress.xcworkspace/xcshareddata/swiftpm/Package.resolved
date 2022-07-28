@@ -12,11 +12,11 @@
       },
       {
         "package": "Charts",
-        "repositoryURL": "https://github.com/danielgindi/Charts",
+        "repositoryURL": "https://github.com/dangthaison91/Charts",
         "state": {
-          "branch": null,
-          "revision": "b38b8d45a8cbda9f0f2a3566778ed114f06056b7",
-          "version": "4.0.3"
+          "branch": "master-xcode-14",
+          "revision": "f7e3a8a364fef039c7b3c8b00154b8eff16c69e6",
+          "version": null
         }
       },
       {

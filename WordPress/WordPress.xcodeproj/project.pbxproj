@@ -26522,10 +26522,10 @@
 		};
 		3F2B62DA284F4E0B0008CD59 /* XCRemoteSwiftPackageReference "Charts" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/danielgindi/Charts";
+			repositoryURL = "https://github.com/dangthaison91/Charts";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 4.0.3;
+				branch = "master-xcode-14";
+				kind = branch;
 			};
 		};
 		3F3B23C02858A1B300CACE60 /* XCRemoteSwiftPackageReference "test-collector-swift" */ = {
