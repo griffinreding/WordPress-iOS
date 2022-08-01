@@ -226,8 +226,13 @@ public class BlockEditorScreen: ScreenObject {
         // Allow access to device media
         app.tap() // trigger the media permissions alert handler
 
-        return try MediaPickerAlbumListScreen()
-                    .selectAlbum(atIndex: 0)
+        if #available(iOS 16.0, *) {
+            // After the UI interuption monitor handler is called, the "Recents" album is automatically tapped.
+            return try MediaPickerAlbumScreen()
+        } else {
+            return try MediaPickerAlbumListScreen()
+                        .selectAlbum(atIndex: 0)
+        }
     }
 
     private func confirmPublish() throws {
