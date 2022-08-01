@@ -226,8 +226,9 @@ public class BlockEditorScreen: ScreenObject {
         // Allow access to device media
         app.tap() // trigger the media permissions alert handler
 
-        if #available(iOS 16.0, *) {
+        if #available(iOS 16.0, *), XCUIDevice.isPhone {
             // After the UI interuption monitor handler is called, the "Recents" album is automatically tapped.
+            // But this only happens on iPhone, not iPad...
             return try MediaPickerAlbumScreen()
         } else {
             return try MediaPickerAlbumListScreen()
@@ -249,7 +250,10 @@ public class BlockEditorScreen: ScreenObject {
         guard app.buttons["Set reminders"].waitForExistence(timeout: 3) else { return }
 
         if XCUIDevice.isPad {
-            app.swipeDown(velocity: .fast)
+            app.otherElements.containing(.other, identifier: "PopoverDismissRegion")
+                .containing(.staticText, identifier: "Set your blogging reminders")
+                .element
+                .swipeDown(velocity: .fast)
         } else {
             let dismissBloggingRemindersAlertButton = app.buttons.element(boundBy: 0)
             dismissBloggingRemindersAlertButton.tap()
