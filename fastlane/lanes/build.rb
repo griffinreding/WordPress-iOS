@@ -6,6 +6,8 @@ SENTRY_PROJECT_SLUG_JETPACK = 'jetpack-ios'
 APPCENTER_OWNER_NAME = 'automattic'
 APPCENTER_OWNER_TYPE = 'organization'
 
+TEST_SCHEME = 'WordPress-BuildForTesting'
+
 # Lanes related to Building and Testing the code
 #
 platform :ios do
@@ -20,7 +22,7 @@ platform :ios do
   lane :build_for_testing do |options|
     run_tests(
       workspace: WORKSPACE_PATH,
-      scheme: 'WordPress',
+      scheme: TEST_SCHEME,
       derived_data_path: DERIVED_DATA_PATH,
       build_for_testing: true,
       device: options[:device],
@@ -70,7 +72,7 @@ platform :ios do
 
     run_tests(
       workspace: WORKSPACE_PATH,
-      scheme: 'WordPress',
+      scheme: TEST_SCHEME,
       device: options[:device],
       deployment_target_version: options[:ios_version],
       ensure_devices_found: true,
